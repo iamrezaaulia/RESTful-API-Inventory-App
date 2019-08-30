@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const productsRoute = require('./src/routes/products')
 const categoriesRoute = require('./src/routes/categories')
 
-const port = process.env.SERVER_PORT || 8000
+const port = process.env.SERVER_PORT
 
 app.listen(port, () => {
     console.log(`Server is running on Port ${port}`)
