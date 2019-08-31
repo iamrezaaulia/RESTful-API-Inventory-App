@@ -129,4 +129,4 @@ $ npm start
 
 ### License
 ----
-[ISC](https://en.wikipedia.org/wiki/ISC_license "ISC")
+© [Reza Aulia](https://github.com/iamrezaaulia "Reza Aulia")
