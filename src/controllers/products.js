@@ -13,6 +13,7 @@ module.exports = {
             }) : res.json({
                 status: 404,
                 error: true,
+                data: [],
                 message: 'Product Not Found !'
             }))
             .catch(err => console.log(err))

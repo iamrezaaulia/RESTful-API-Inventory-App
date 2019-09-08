@@ -4,8 +4,8 @@ module.exports = {
     getProducts: (req, res) => {
         return new Promise((resolve, reject) => {
             const sortBy    = req.query.sortBy||'products.id'
-            const sort      = req.query.sort ||'ASC'
-            const limit     = parseInt(req.query.limit) || 5
+            const sort      = req.query.sort ||'DESC'
+            const limit     = parseInt(req.query.limit) || 8
             const page      = (parseInt(req.query.page) - 1) * limit || 0
             const search    = '%'+req.query.search+'%'
             const query     = `SELECT products.id, products.name, categories.category, products.quantity FROM products JOIN categories ON products.categories_id = categories.id`
@@ -43,8 +43,9 @@ module.exports = {
     },
 
     getProductById: (id) => {
+        const query     = `SELECT * FROM products JOIN categories ON products.categories_id = categories.id`
         return new Promise((resolve, reject) => {
-            conn.query('SELECT * FROM products WHERE id = ?', id, (err, result) => {
+            conn.query(query + ' WHERE products.id = ?', id, (err, result) => {
                 if (!err) {
                     resolve(result)
                 } else {
@@ -96,3 +97,5 @@ module.exports = {
         })
     },    
 }
+
+// products.id, products.name, categories.category, products.quantity
